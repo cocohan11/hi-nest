@@ -8,7 +8,7 @@ export class CreateMovieDto {
     @IsNumber()
     readonly year: number;
 
-    @IsString({ each: true })
+    @IsString({ each: true }) // 문자열인지 검사 
     readonly genres: string[];
 }
 
