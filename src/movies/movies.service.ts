@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Movie } from './entities/movie.entity';
+import { CreateMovieDto } from './dto/create-movie.dto';
 
 @Injectable()
 export class MoviesService {
@@ -22,7 +23,7 @@ export class MoviesService {
         this.movies.filter(movie => movie.id !== id);
     }
 
-    create(movieData) {
+    create(movieData: CreateMovieDto) {
         this.movies.push({
             id: this.movies.length + 1,
             ...movieData,
@@ -30,10 +31,6 @@ export class MoviesService {
     }
 
     update(id: number, movieData) {
-        console.log(id)
-        console.log(typeof id)
-        console.log(movieData)
-        console.log(this.movies)
         const movieToUpdate = this.getOne(id); // find 메서드를 통해 찾은 영화 객체
         Object.assign(movieToUpdate, movieData); // 원본 배열의 객체를 직접 가리키는 참조이므로, 이 객체를 수정하면 원본 배열의 객체도 수정됨
         return this.movies;

@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { MoviesService } from './movies.service';
 import { Movie } from './entities/movie.entity';
+import { CreateMovieDto } from './dto/create-movie.dto';
 
 @Controller('movies') // Entry point 
 export class MoviesController {
@@ -15,6 +16,7 @@ export class MoviesController {
 
     @Get(":id")
     getOne(@Param('id', ParseIntPipe) movieId : number): Movie {
+        console.log(typeof movieId)
         return this.moviesService.getOne(movieId);
     }
 
@@ -25,7 +27,7 @@ export class MoviesController {
     }
 
     @Post()
-    create(@Body() movieData) {
+    create(@Body() movieData: CreateMovieDto) {
         return this.moviesService.create(movieData);
     }
 
