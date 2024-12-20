@@ -1,13 +1,13 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, Req, Res } from '@nestjs/common';
 import { Movie } from './entities/movie.entity';
 import { CreateMovieDto } from './dto/create-movie.dto';
 import { UpdateMovieDto } from './dto/update-movie.dto';
 
 @Injectable()
 export class MoviesService {
-    private movies : Movie[] = [];
+    private movies: Movie[] = [];
 
-    getAll() : Movie[] {
+    getAll(): Movie[] {
         return this.movies;
     }
 
