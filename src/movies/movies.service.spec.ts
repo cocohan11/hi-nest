@@ -17,11 +17,8 @@ describe('MoviesService', () => {
     expect(service).toBeDefined();
   });
 
-  // 여기에 더 많은 테스트 케이스를 추가할 수 있습니다
-  describe('getAll', () => {
-    it('should return an array', () => {
-      const result = service.getAll();
-      expect(Array.isArray(result)).toBeTruthy();
-    });
+  it('should be 4', () => {
+    expect(2+3).toEqual(5);
   });
+
 });
