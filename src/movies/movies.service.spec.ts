@@ -17,8 +17,16 @@ describe('MoviesService', () => {
     expect(service).toBeDefined();
   });
 
-  it('should be 4', () => {
-    expect(2+3).toEqual(5);
-  });
+  describe("getAll", () => {
+
+
+    it("should return an array", () => {
+      
+      const result = service.getAll();
+      expect(result).toBeInstanceOf(Array); // 배열 인스턴스인지 확인
+    })
+
+
+  })
 
 });
